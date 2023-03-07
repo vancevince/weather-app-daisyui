@@ -1,0 +1,41 @@
+2/22/23
+run app with:
+
+npm run start
+
+2/23/23
+- need to have pages for five day forecast and single day forecast 
+
+2/25/23
+- saved progress prior to switching to global state management in a zipped folder
+- list of files changed:
+  -.env --> added RECT_APP_OPEN_WEATHER_GE0_URL
+
+  - CityResults.jsx --> added new env variable RECT_APP_OPEN_WEATHER_GE0_URL to fetch call,
+                      deleted hooks and fetchCities function b/c they are brought in
+                      via GeographicContext now
+
+  - GeographicContext.js --> copied hooks, fetchCities from CityResults to file
+
+  - App.js --> wrapped GeographicContext Provider around elements in app
+
+2/26/23
+- set up the global state providers
+- figure out how to use state to make calls for five day and single day forecasts
+  using the forecast and current weather APIs
+
+2/27/23
+- setting up single User. this is the point where I started trying to do the second api call to 
+  get the forecast using the geographic context
+
+- CityItem contains the link that will lead to the forecast page
+- must find way to connect this page
+- User.jsx under pages directory is the basis for FiveDayForecast.jsx
+- tracked changs:
+  - CityItem.jsx Link to attribute has /forecast landing
+  - App.js has Route to FiveDayForecast
+  - GeographicContext.js added city object to initial state, made it available to provider
+  - getForecast function added to GeographicContext
+    - this is the function that gets the single city's geo graphic data needed for the forecast
+  - GeographicReducer, added new action GET_CITY
+
